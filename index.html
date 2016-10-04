@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1 style="text-align: center;">
-        <font color = "FF69B4">
-        .24.	
-        </font>
-</h1>
+---
+layout: default
+---
 
-<span style="text-align: center;">
-        <div class="navBar">
-        About me</a> |
-        Blog Posts</a> |
-        Products that I Love</a>
-        </div>
-</span>
-<br>
+<div class="home">
 
-<p>This website is under construction.</p>
-</body>
-</html>
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
